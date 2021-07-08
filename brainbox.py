@@ -46,8 +46,14 @@ class _GetchWindows:
 getch = _Getch()
 
 def read_character():
-    """Read one character from stdin. No change when no input is available."""
-    if sys.stdin.isatty():
+    # read one character from stdin. No change when no input is available.
+    if online:
+        try:
+            char = ord(inputs.pop(0))
+        except:
+            char = None
+        return char
+    elif sys.stdin.isatty():
         # we're in console, read a character from the user
         char = getch()
         # check for ctrl-c (break)
@@ -172,15 +178,43 @@ class Interpreter:
                     pass
 
         elif command == ".":
-            sys.stdout.write(chr(mp_value))
-            sys.stdout.flush()
+            global online
+            global out
+            char = chr(mp_value)
+            if online:
+                out[1] += char
+            else:
+                sys.stdout.write(char)
+                sys.stdout.flush()
         
         elif command == ",":
             char = read_character()
             if char != None: self._brainbox[mp_x][mp_y] = ord(char)
 
         elif command == "!":
-            exit("")
+            raise StopExecution()
+
+class StopExecution(Exception):
+    pass
+
+
+def execute(code, input_list, output_var):
+    global out
+    global online
+    global inputs
+    out = output_var
+    out[1] = ""
+    out[2] = ""
+    online = True
+    inputs = input_list
+
+    interp = Interpreter(code)
+
+    while True:
+        try:
+            interp.move()
+        except StopExecution:
+            return
 
 
 if __name__ == "__main__":
@@ -200,6 +234,9 @@ if __name__ == "__main__":
 
     try:
         while True:
-            interp.move()
+            try:
+                interp.move()
+            except StopExecution:
+                exit("\n")
     except KeyboardInterrupt:
         exit("\n")
