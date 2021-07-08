@@ -49,7 +49,7 @@ def read_character():
     # read one character from stdin. No change when no input is available.
     if online:
         try:
-            char = ord(inputs.pop(0))
+            char = inputs.pop(0)
         except:
             char = None
         return char
@@ -206,7 +206,7 @@ def execute(code, input_list, output_var):
     out[1] = ""
     out[2] = ""
     online = True
-    inputs = input_list
+    inputs = [char for char in input_list]
 
     interp = Interpreter(code)
 
