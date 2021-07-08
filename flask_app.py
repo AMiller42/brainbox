@@ -58,8 +58,7 @@ def execute():
 
             y.write(ret[1])
     with open(f"sessions/{session}/.stdout", "r", encoding="utf-8") as x:
-        with open(f"sessions/{session}/.stderr", "r", encoding="utf-8") as y:
-            val = {"stdout": x.read(), "stderr": y.read()}
+            val = "stdout": x.read()
     shutil.rmtree(f"sessions/{session}", ignore_errors=True)
     return val
 
