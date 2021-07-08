@@ -63,7 +63,8 @@ def read_character():
     else:
         # input is redirected using pipes
         char = sys.stdin.read(1)
-        # no change if there is no more input available
+        # no change if there is no more input available or if the character is out of range
+        if char != "" and ord(char) > 255: char = ""
         return char if char != "" else None
 
 class Interpreter:
