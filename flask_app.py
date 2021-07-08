@@ -31,7 +31,7 @@ def execute():
     session = request.form["session"]
 
     if session not in sessions:
-      return {"stdout": "", "stderr": "The session was invalid! You may need to reload your tab."}
+      return {"stdout": "The session was invalid! You may need to reload your tab."}
 
     shutil.rmtree(f"sessions/{session}", ignore_errors=True)
     os.mkdir(f"sessions/{session}")
@@ -40,12 +40,11 @@ def execute():
       f.write(input_list)
 
     with open(f"sessions/{session}/.stdin", "r", encoding="utf-8") as x:
-      with open(f"sessions/{session}/.stdout", "w", encoding="utf-8") as y:
-        with open(f"sessions/{session}/.stderr", "w", encoding="utf-8") as z:
+        with open(f"sessions/{session}/.stdout", "w", encoding="utf-8") as y:
             manager = multiprocessing.Manager()
             ret = manager.dict()
             time = 15
-            
+
             ret[1] = ""
             ret[2] = ""
             sessions[session] = multiprocessing.Process(target=brainbox.execute, args=(code, input_list, ret))
@@ -54,13 +53,10 @@ def execute():
 
 
             if sessions[session].is_alive():
-
                 sessions[session].terminate()
-                if 2 in ret:
-                    ret[2] += "\n" + f"Code timed out after {time} seconds"
+                ret[1] += "\n\n\n" + f"Code timed out after {time} seconds"
 
-            y.write(ret[1])
-            z.write(ret[2])
+        y.write(ret[1])
     with open(f"sessions/{session}/.stdout", "r", encoding="utf-8") as x:
         with open(f"sessions/{session}/.stderr", "r", encoding="utf-8") as y:
             val = {"stdout": x.read(), "stderr": y.read()}
