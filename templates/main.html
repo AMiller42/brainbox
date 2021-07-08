@@ -49,7 +49,7 @@
             width: 100%;
         }
 		
-		#code, #input {
+		#code, #inputs {
 			margin-top: 20px;
 		}
 
@@ -236,7 +236,7 @@ ${code}
             <textarea id="code" name="code" oninput="resizeCodeBox('code'); updateCount()" onkeyup="updateCount()"></textarea>
 
         <div style="display: inline-block;">Input</div>
-            <textarea id="input" name="inputs" oninput="resizeCodeBox('inputs')"></textarea>
+            <textarea id="inputs" name="inputs" oninput="resizeCodeBox('inputs')"></textarea>
 
         <div style="display: inline-block;">Output</div>
             <button class="copy-btn" onclick="copyToClipboard('output')" style="color: white; height:auto; display: inline-block;" type="button">click to copy</button>
