@@ -52,7 +52,25 @@ Being a brainf*** derivative, brainbox is trivially [Turing-complete](https://en
 
 ## Tests
 
-There are three testing programs included with the 
+There are three example programs included in the repository to let you try out the language:
+
+### Hello, World!
+```
+ ++++<!.+aa.--------.------.+++.d.-d.------------.++++++++++++aa.+++..+++++++.---w.dd]-sa-a+w+d]-ds+a+++a+++w++d[++++d
+```
+[Try it Online!](http://brainbox.pythonanywhere.com?code=%20%2B%2B%2B%2B%3C!.%2Baa.--------.------.%2B%2B%2B.d.-d.------------.%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2Baa.%2B%2B%2B..%2B%2B%2B%2B%2B%2B%2B.---w.dd%5D-sa-a%2Bw%2Bd%5D-ds%2Ba%2B%2B%2Ba%2B%2B%2Bw%2B%2Bd%5B%2B%2B%2B%2Bd&inputs=)
+
+### Cat
+```
+-],.]!
+```
+[Try it Online!](http://brainbox.pythonanywhere.com?code=-%5D%2C.%5D!&inputs=Hello%2C%20Waffles!)
+
+### Truth-machine
+```
+,.[[a+d-d+a]d-]a+[aa]d[.]!
+```
+[Try it Online!](http://brainbox.pythonanywhere.com?code=%2C.%5B%5Ba%2Bd-d%2Ba%5Dd-%5Da%2B%5Baa%5Dd%5B.%5D!%0A%0AThis%20program%20was%20made%20by%20CGCC%20user%20Herman%20L%0A%0Ahttps%3A%2F%2Fcodegolf.stackexchange.com%2Fa%2F165448%2F101522&inputs=0)
 
 
 
