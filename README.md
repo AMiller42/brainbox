@@ -72,9 +72,9 @@ There are three example programs included in the repository to let you try out t
 ```
 [Try it Online!](http://brainbox.pythonanywhere.com?code=%2C.%5B%5Ba%2Bd-d%2Ba%5Dd-%5Da%2B%5Baa%5Dd%5B.%5D!%0A%0AThis%20program%20was%20made%20by%20CGCC%20user%20Herman%20L%0A%0Ahttps%3A%2F%2Fcodegolf.stackexchange.com%2Fa%2F165448%2F101522&inputs=0)
 
+# Try it Online!
 
-
-
+To easily write and test your own brainbox programs, there is an online interpreter located at [brainbox.pythonanywhere.com](https://brainbox.pythonanywhere.com)
 
 
 
@@ -591,24 +591,6 @@ What is it?  It's an elephant being eaten by a snake, of course. -->
 
 
 <!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
